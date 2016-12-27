@@ -2,7 +2,10 @@ package castle;
 
 public class Room {
     private String description;
-    private Room northExit=null;
+    private String icon;
+    
+
+	private Room northExit=null;
     private Room southExit=null;
     private Room eastExit=null;
     private Room westExit=null;
@@ -12,6 +15,27 @@ public class Room {
         this.description = description;
     }
 
+    public String getIcon() {
+		return icon;
+	}
+
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+	public Room getExit(String direction){
+		if(direction.equals("north")){
+			return getNorthExit();
+		}else if(direction.equals("east")){
+			return getEastExit();
+		}else if(direction.equals("south")){
+			return getSouthExit();
+		}else if(direction.equals("west")){
+			return getWestExit();
+		}
+		return null;
+	}
     
     public Room setExits(Room north, Room east, Room south, Room west) 
     {
